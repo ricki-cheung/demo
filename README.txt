@@ -1,0 +1,3 @@
+1、不适用mybatis的注解方法，而是使用xml定义resultmap,因为注解无法写复杂的SQL。
+2、spring默认使用的datasource为HikariDataSource
+3、需要编写Dao、Server，接口可以不用写，毕竟业务需求不多。
