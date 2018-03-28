@@ -5,7 +5,7 @@ package com.example.demo.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.mapper.PatientInfoMapper;
 import com.example.demo.model.PatientInfo;
@@ -14,7 +14,7 @@ import com.example.demo.model.PatientInfo;
  * @author Ricki
  *
  */
-@Component
+@Repository
 public class PatientInfoDao {
 	
 	private final PatientInfoMapper patientInfoMapper;
