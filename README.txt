@@ -1,3 +1,5 @@
 1、不使用mybatis的注解方法，而是使用xml定义resultmap,因为注解无法写复杂的SQL。
 2、spring默认使用的datasource为HikariDataSource
 3、需要编写Dao、Server，接口可以不用写，毕竟业务需求不多。
+4、mybatis的mapper接口相当于Dao，所以Dao可以不用定义，直接使用mapper注入service就可以了。
+5、service是需要创建的，虽然有些方法逻辑不多，如直接调用Dao中的方法。

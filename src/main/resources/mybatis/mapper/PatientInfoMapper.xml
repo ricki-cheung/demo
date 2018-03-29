@@ -11,10 +11,28 @@
    </resultMap>
 
    <!-- 查询操作 begin -->
-   <select id="queryList" resultMap="simplePatientInfo">
+   <!-- 查询病人列表数据 -->
+   <select id="queryList" parameterType="java.util.Map" resultMap="simplePatientInfo">
      select patient_sn,p_name,care_level from t_patient_info t,t_person_info d
-     where t.person_sn = d.person_sn
+     where t.person_sn = d.person_sn 
+     <if test="outHospitalFlag != null">
+        and out_hospital_flag = #{outHospitalFlag} 
+     </if>
+     <if test="offset != null and pageSize != null">
+        limit #{offset},#{pageSize}
+     </if>
+   </select>
+   
+   <!-- 查询病人记录总数 -->
+   <select id="getTotalCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+      select count(*) from t_patient_info 
+      where 1=1 
+      <if test="outHospitalFlag != null">
+        and out_hospital_flag = #{outHospitalFlag} 
+      </if>
    </select>
    <!-- 查询操作 end -->
+   
+   
    
 </mapper>
