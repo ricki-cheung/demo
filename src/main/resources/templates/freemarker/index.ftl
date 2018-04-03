@@ -1,4 +1,7 @@
 <html>
+<head>
+<meta http-equiv="refresh" content="5;URL=patients">
+</head>
 	<body>
 		<h3>欢迎!</h3>
 		<form action="patients">

@@ -10,16 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class NotFoundController implements ErrorController {
-	 @Override
-	    public String getErrorPath() {
-	        return "/error";
-	    }
-	    @RequestMapping(value = "/error")
-	    public Object error(HttpServletResponse response, HttpServletRequest request) {
-	       
-	       
-	        return new ModelAndView("404");
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
 
-	    }
-   
+	@RequestMapping(value = "/error")
+	public Object error(HttpServletResponse response, HttpServletRequest request) {
+
+		return new ModelAndView("404");
+
+	}
+
 }
