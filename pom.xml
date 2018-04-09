@@ -42,11 +42,8 @@
 
 
 		<!-- 日志信息 begin -->
-		<!-- <dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> 
+			<version>1.2.17</version> </dependency> -->
 		<!-- 日志信息 end -->
 
 		<!-- Mybatis 配置 begin -->
@@ -61,17 +58,25 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.46</version><!--$NO-MVN-MAN-VER$-->
+			<version>5.1.46</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 		<!-- 数据库驱动配置 end -->
-		
+
 		<!-- 模板配置 begin -->
 		<dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-freemarker</artifactId>
-          <version>2.0.0.RELEASE</version><!--$NO-MVN-MAN-VER$-->
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+			<version>2.0.0.RELEASE</version><!--$NO-MVN-MAN-VER$ -->
+		</dependency>
 		<!-- 模板配置 end -->
+
+		<!-- 验证框架 begin -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring-boot-starter</artifactId>
+			<version>1.4.0-RC2</version>
+		</dependency>
+		<!-- 验证框架 end -->
 	</dependencies>
 
 	<build>
