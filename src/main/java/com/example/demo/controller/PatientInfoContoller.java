@@ -7,10 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.PatientInfo;
 import com.example.demo.service.PatientInfoService;
@@ -25,8 +29,15 @@ public class PatientInfoContoller {
 	@Autowired
 	PatientInfoService patientInfoService;
 
-	@RequestMapping("/patients")
-	public List<PatientInfo> list(
+	/*@RequestMapping("/patientList")
+	public String patientList(ModelMap modelMap,HttpServletRequest request){
+		modelMap.put("patientList", "patientList");
+		return "/dateList";
+	}*/
+	
+	
+	@RequestMapping("/toPatientList")
+	public ModelAndView list(
 			@RequestParam(defaultValue="1") int pageNo,
 			@RequestParam(defaultValue="20") int pageSize){
 		//获取表中所有记录数 
@@ -44,8 +55,9 @@ public class PatientInfoContoller {
 		
 		//获取分页数据
 		List<PatientInfo> resultList = patientInfoService.queryList(paramMap);
-		
-		return resultList;
+		ModelAndView modelAndView = new ModelAndView("patientList");    
+		modelAndView.addObject("resultList", resultList);
+		return modelAndView;
 	}
 	
 	
