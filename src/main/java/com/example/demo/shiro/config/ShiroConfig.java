@@ -14,7 +14,7 @@ import com.example.demo.shiro.realm.HelixRealm;
  *
  */
 @Configuration
-public class ShiroIni {
+public class ShiroConfig {
 
 	@Bean
 	public Realm helixRealm() {
