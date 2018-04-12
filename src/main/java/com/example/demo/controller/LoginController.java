@@ -19,20 +19,10 @@ import com.example.demo.model.User;
 public class LoginController {
 	
 	/**
-	 * 登录页面
-	 * @return
-	 */
-	@RequestMapping("/login")
-	public String loginPage() {
-	    return "login";	
-	}
-	
-	
-	/**
 	 * @return
 	 * 处理用户登录操作
 	 */
-	@RequestMapping("/toLogin")
+	@RequestMapping("/login")
 	public String login(User user) {
 		//创建一个用户
 		Subject userSubject = SecurityUtils.getSubject();

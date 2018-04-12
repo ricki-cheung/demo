@@ -27,7 +27,7 @@ public class HelixRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		// TODO Auto-generated method stub
 		// TODO 测试用，只要返回部位空，即认证成功
-		return new SimpleAuthenticationInfo();
+		return new SimpleAuthenticationInfo("ricki","cheung","HelixRealm");
 	}
 
 }
