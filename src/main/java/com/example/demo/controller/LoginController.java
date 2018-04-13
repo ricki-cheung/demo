@@ -16,7 +16,7 @@ import com.example.demo.model.User;
  *
  */
 @Controller
-public class LoginController {
+public class LoginController {	
 	
 	/**
 	 * @return
@@ -24,18 +24,22 @@ public class LoginController {
 	 */
 	@RequestMapping("/login")
 	public String login(User user) {
+		if(user == null) {
+			return "login";
+		}
+		
 		//创建一个用户
 		Subject userSubject = SecurityUtils.getSubject();
 		//定义一个token
-		UsernamePasswordToken token = new UsernamePasswordToken("ricki","cheung");
+		UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
 		//用户登录
 		try {
 			userSubject.login(token);
 		}catch(Exception e) {//TODO 这里可以细分异常类型，做出不同的处理
 			e.printStackTrace();
-			return "redirect:/login";
+			return "login";
 		}
 		
-		return "redirect:/index";
+		return "redirect:index";
 	}
 }
