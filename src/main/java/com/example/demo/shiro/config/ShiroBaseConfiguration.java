@@ -35,8 +35,8 @@ public class ShiroBaseConfiguration {
 	@Bean
     protected ShiroFilterChainDefinition shiroFilterChainDefinition() {
 		DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-        chainDefinition.addPathDefinition("/**", "authc");
-        chainDefinition.addPathDefinition("/logout", "logout");
+		chainDefinition.addPathDefinition("/api/logout", "logout");
+		chainDefinition.addPathDefinition("/**", "authc");
         return chainDefinition;
     }
 }
