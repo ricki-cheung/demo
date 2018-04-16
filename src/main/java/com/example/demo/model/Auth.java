@@ -8,7 +8,7 @@ package com.example.demo.model;
 public class Auth {
 	private String id;
 	private String name;
-	private Role role;//一个权限对应一个角色
+	private String roleId;//一个权限对应一个角色
 	public String getId() {
 		return id;
 	}
@@ -21,12 +21,13 @@ public class Auth {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Role getRole() {
-		return role;
+	public String getRoleId() {
+		return roleId;
 	}
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
 	}
+	
 	
 	
 }
