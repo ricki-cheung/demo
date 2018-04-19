@@ -3,16 +3,16 @@ package com.example.demo.model;
 /**
  * 权限_角色
  * 
- * @author Administrator
+ * @author yanzhiying
  *sys_role_auth表
  */
 public class AuthRole {
-	private Long roleId;
+	private Integer roleId;
 	private String authId;
-	public Long getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(Long roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	public String getAuthId() {

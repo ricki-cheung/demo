@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.model.UserRole">
+   
+   <!-- 简单信息映射关系 -->
+   <resultMap type="com.example.demo.model.AuthRole" id="userRole">
+      <result column="user_id" property="userId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+      <result column="role_id" property="roleId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+   </resultMap>   
+   
+</mapper>

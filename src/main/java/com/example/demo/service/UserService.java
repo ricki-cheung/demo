@@ -4,18 +4,16 @@
 package com.example.demo.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.mapper.PatientInfoMapper;
 import com.example.demo.mapper.UserMapper;
-import com.example.demo.model.PatientInfo;
+import com.example.demo.model.Role;
 import com.example.demo.model.User;
 
 /**
- * @author Ricki
+ * @author yanzhiying
  *
  */
 @Service
@@ -26,11 +24,11 @@ public class UserService {
 	
 	
 	/**
-	 * 查询用户列表数据
+	 * 查询用户数据
 	 * @return
 	 */
-	public List<User> queryList(Map<String,Object> paramMap){
-		return userMapper.queryUserList(paramMap);
+	public List<User> queryUserById(Integer userId){
+		return userMapper.queryUserById(userId);
 	}
 
 

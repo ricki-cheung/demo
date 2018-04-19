@@ -2,19 +2,17 @@
  * 
  */
 package com.example.demo.mapper;
-import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.model.User;
+import com.example.demo.model.Auth;
 
 /**
  * @author yanzhiying
  * mybatis的Mapper相当于Dao层
  */
 @Mapper
-public interface UserMapper {
-	List<User> queryUserById(@Param("userId") Integer userId);
+public interface AuthMapper {
+	Auth queryAuthById(@Param("authId") String authId);
 }
