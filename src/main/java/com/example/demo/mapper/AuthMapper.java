@@ -4,6 +4,7 @@
 package com.example.demo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.demo.model.Auth;
 
@@ -13,5 +14,5 @@ import com.example.demo.model.Auth;
  */
 @Mapper
 public interface AuthMapper {
-	Auth queryAuthById(String authId);
+	Auth queryAuthById(@Param("authId") String authId);
 }
