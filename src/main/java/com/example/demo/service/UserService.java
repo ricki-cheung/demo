@@ -27,8 +27,8 @@ public class UserService {
 	 * 查询用户数据
 	 * @return
 	 */
-	public User queryUserById(int id){
-		return userMapper.queryUserById(id);
+	public List<User> queryUserById(Integer userId){
+		return userMapper.queryUserById(userId);
 	}
 
 
