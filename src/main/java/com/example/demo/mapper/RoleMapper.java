@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.demo.model.Role;
 
@@ -11,5 +12,5 @@ import com.example.demo.model.Role;
  */
 @Mapper
 public interface RoleMapper {
-	Role getRoleById(int roleId);
+	Role getRoleById(@Param("roleId") Integer roleId);
 }
