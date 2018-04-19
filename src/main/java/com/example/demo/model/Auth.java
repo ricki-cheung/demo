@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 /**
  * 
  * @author yanzhiying
@@ -7,26 +9,29 @@ package com.example.demo.model;
  */
 public class Auth {
 	private String id;
-	private String name;
-	private String roleId;//一个权限对应一个角色
+	private String authName;
+	private List<Role> roleList;//一个权限对应多个角色
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getAuthName() {
+		return authName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setAuthName(String authName) {
+		this.authName = authName;
 	}
-	public String getRoleId() {
-		return roleId;
+	public List<Role> getRoleList() {
+		return roleList;
 	}
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
+	public void setRoleList(List<Role> roleList) {
+		this.roleList = roleList;
 	}
+	
+	
+	
 	
 	
 	

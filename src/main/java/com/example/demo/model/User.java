@@ -9,8 +9,8 @@ import java.util.List;
  */
 public class User {
 	private Integer id;
-	private String username;
-	private String password;
+	private String userName;
+	private String passWord;
 	private List<Role> roleList;//一个用户拥有多个角色
 	
 	public Integer getId() {
@@ -19,17 +19,19 @@ public class User {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getPassword() {
-		return password;
+	public String getPassWord() {
+		return passWord;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
 	}
 	public List<Role> getRoleList() {
 		return roleList;
