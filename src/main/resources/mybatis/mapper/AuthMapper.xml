@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.AuthMapper">
+   
+   <!-- 简单信息映射关系 -->
+   <resultMap type="com.example.demo.model.Auth" id="auth">
+      <result column="auth_id" property="id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <result column="auth_name" property="authName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      
+  	<!-- 这里把auth的id传过去 --><!-- 查询该auth表/对象的时候调用子查询 -->
+  	 <collection column="auth_id" property="roleList"
+  	 		select="com.example.demo.mapper.RoleMapper.getRoleListByAuthId" >
+  	 </collection>
+   </resultMap>
+
+   <!-- 查询操作 begin -->
+   <!-- 根据权限id查询权限 -->
+   <select id="queryAuthById" parameterType="java.lang.String" resultMap="auth">
+      SELECT auth_id,auth_name FROM sys_auth WHERE auth_id=#{authId,jdbcType=VARCHAR}
+   </select>
+   <!-- 查询操作 end -->
+   
+   <!-- 根据role id查询auth集合 -->
+   <select id="getAuthListByRoleId" parameterType="java.lang.Integer" resultMap="auth">
+   	SELECT a.auth_id,a.auth_name FROM sys_auth a LEFT JOIN sys_role_auth  r ON a.auth_id=r.auth_id
+   	LEFT JOIN sys_role s ON r.role_id=s.role_id WHERE s.role_id=#{roleId,jdbcType=INTEGER}
+   </select>
+   
+</mapper>
