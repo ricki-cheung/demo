@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.PatientInfoMapper">
+   
+   <!-- 简单信息映射关系 -->
+   <resultMap type="com.example.demo.model.PatientInfo" id="simplePatientInfo">
+      <result column="patient_sn" property="id" javaType="java.lang.Long" jdbcType="INTEGER"/>
+      <result column="p_name" property="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <result column="care_level" property="careLevel" javaType="java.lang.String" jdbcType="VARCHAR"/>
+   </resultMap>
+
+   <!-- 查询操作 begin -->
+   <!-- 查询病人列表数据 -->
+   <select id="queryList" parameterType="java.util.Map" resultMap="simplePatientInfo">
+     select patient_sn,p_name,care_level from t_patient_info t,t_person_info d
+     where t.person_sn = d.person_sn 
+     <if test="outHospitalFlag != null">
+        and out_hospital_flag = #{outHospitalFlag} 
+     </if>
+     <if test="offset != null and pageSize != null">
+        limit #{offset},#{pageSize}
+     </if>
+   </select>
+   
+   <!-- 查询病人记录总数 -->
+   <select id="getTotalCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+      select count(*) from t_patient_info 
+      where 1=1 
+      <if test="outHospitalFlag != null">
+        and out_hospital_flag = #{outHospitalFlag} 
+      </if>
+   </select>
+   <!-- 查询操作 end -->
+   
+   
+   
+</mapper>
