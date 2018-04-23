@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ctx.contextPath}/static/bootstrap/css/bootstrap.min.css"/>
 <style>
     body{padding-top:20px;}
-</style>-->
+</style>
 </head>
 	<body>
 	<div class="container">
@@ -38,9 +38,9 @@
         </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
-    <script src="plugins/jquery/jquery-3.3.1.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="${ctx.contextPath}/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="${ctx.contextPath}/static/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
 

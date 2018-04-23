@@ -3,7 +3,11 @@
  */
 package com.example.demo.shiro.config;
 
+import org.apache.shiro.cache.CacheManager;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.Realm;
+import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
+import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +31,23 @@ public class ShiroBaseConfiguration {
 		return new HelixRealm();
 	}
 	
+	/**
+	 * @return
+	 * 如果设置了sessionDAO，相应需要配置cacheManager
+	 */
+	@Bean
+	public CacheManager cacheManager() {
+		return new EhCacheManager();
+	}
+	
+	/**
+	 * @return
+	 * 设置sessionDAO,默认是MemorySessionDAO
+	 */
+	@Bean
+	public SessionDAO sessionDAO() {
+        return new EnterpriseCacheSessionDAO();
+    }
 	
 	/**
 	 * @return
@@ -35,7 +56,8 @@ public class ShiroBaseConfiguration {
 	@Bean
     protected ShiroFilterChainDefinition shiroFilterChainDefinition() {
 		DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-		chainDefinition.addPathDefinition("/api/logout", "logout");
+		chainDefinition.addPathDefinition("/logout", "logout");
+		chainDefinition.addPathDefinition("/static/**", "anon");
 		chainDefinition.addPathDefinition("/**", "authc");
         return chainDefinition;
     }
