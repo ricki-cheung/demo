@@ -77,6 +77,14 @@
 			<version>1.4.0</version>
 		</dependency>
 		<!-- 验证框架 end -->
+
+		<!-- 第三方标签 begin -->
+		<dependency>
+			<groupId>net.mingsoft</groupId>
+			<artifactId>shiro-freemarker-tags</artifactId>
+			<version>0.1</version>
+		</dependency>
+    	<!-- 第三方标签 end -->
 	</dependencies>
 
 	<build>
