@@ -22,14 +22,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         apply the skin class to the body tag so the changes take effect. -->
   
   <link rel="stylesheet" href="${ctx.contextPath}/static/adminlte/css/skins/skin-blue.min.css">
-
+  <!--新增 begin-->
+  <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/index.css">
+  <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/TabPanel.css">
+  <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/site.css">
+  <!--新增 end-->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <link rel="stylesheet" href="${ctx.contextPath}/static/site/index.css"><!--新增-->
-  <script src="${ctx.contextPath}/static/site/index.js"></script><!--新增-->
   <![endif]-->
 
   <!-- Google Font -->
@@ -246,35 +248,11 @@ desired effect
         </div>
       </div>
 
-      <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-        </div>
-      </form>
-      <!-- /.search form -->
+      
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+        
         
         <#assign context="${ctx}"/>
 
@@ -292,7 +270,7 @@ desired effect
 			        <@menuTree item.children />
 			      </ul>
 			    <#else>
-			        <li><a title="${item.authName}" href="javascript:" data-href="${item.authEntry}" class="addTabPage" data-tab-id="tabpanel-ac95ac56bd"> 
+			        <li><a title="${item.authName}" href="javascript:" data-href="${item.authEntry}" class="addTabPage" > 
 			        	<span>${item.authName}</span> 
 			        	</a>
 			        </li>   
@@ -444,6 +422,12 @@ desired effect
 <script src="${ctx.contextPath}/static/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="${ctx.contextPath}/static/adminlte/js/adminlte.min.js"></script>
+<!--新增 begin-->
+<script src="${ctx.contextPath}/static/site/js/index.js"></script>
+<script src="${ctx.contextPath}/static/site/js/TabPanel.js"></script>
+<script src="${ctx.contextPath}/static/site/js/TabPanel.extend.js"></script>
+<script src="${ctx.contextPath}/static/site/js/site.js"></script>
+<!--新增 end-->
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
