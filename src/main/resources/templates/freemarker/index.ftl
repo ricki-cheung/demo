@@ -20,6 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
+  
   <link rel="stylesheet" href="${ctx.contextPath}/static/adminlte/css/skins/skin-blue.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,6 +28,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <link rel="stylesheet" href="${ctx.contextPath}/static/site/index.css"><!--新增-->
+  <script src="${ctx.contextPath}/static/site/index.js"></script><!--新增-->
   <![endif]-->
 
   <!-- Google Font -->
@@ -272,7 +275,47 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
           </ul>
         </li>
+        
+        <#assign context="${ctx}"/>
+
+<!-- 递归  宏定义 -->
+	<#macro menuTree items>
+	    <#if items?? && items?size gt 0>
+		    <#list items as item>
+			    <#if item.children?? && item.children?size gt 0>
+			    <li class="treeview">
+			      <a href="javascript:void(0)">
+			        <span>${item.authName}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i>
+              </span>
+			      </a>
+			      <ul class="treeview-menu">
+			        <@menuTree item.children />
+			      </ul>
+			    <#else>
+			        <li><a title="${item.authName}" href="javascript:" data-href="${item.authEntry}" class="addTabPage" data-tab-id="tabpanel-ac95ac56bd"> 
+			        	<span>${item.authName}</span> 
+			        	</a>
+			        </li>   
+			    </#if>
+		   </#list>
+		   </li>
+		</#if>
+	</#macro>
+       <!-- 调用宏 生成递归树 -->
+       <@menuTree treeMenu />
       </ul>
+      
+      
+       
+      
+      
+
+
+
+
+
+    
+      
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
@@ -401,7 +444,6 @@ desired effect
 <script src="${ctx.contextPath}/static/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="${ctx.contextPath}/static/adminlte/js/adminlte.min.js"></script>
-
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
