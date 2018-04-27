@@ -27,12 +27,5 @@ public class AuthService {
 	
 	
 	
-	public AuthMapper getAuthMapper() {
-		return authMapper;
-	}
-
-	public void setAuthMapper(AuthMapper authMapper) {
-		this.authMapper = authMapper;
-	}
 	
 }
