@@ -23,9 +23,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   <link rel="stylesheet" href="${ctx.contextPath}/static/adminlte/css/skins/skin-blue.min.css">
   <!--新增 begin-->
-  <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/index.css">
   <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/TabPanel.css">
   <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/site.css">
+  <link rel="stylesheet" href="${ctx.contextPath}/static/site/css/index.css">
   <!--新增 end-->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -301,27 +301,7 @@ desired effect
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content container-fluid">
-
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-
-    </section>
-    <!-- /.content -->
+    <div id="tabpanel"></div>
   </div>
   <!-- /.content-wrapper -->
 
@@ -415,18 +395,19 @@ desired effect
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-
+ <div id="desktopTabPage" class="hide" data-title="仪表盘" data-url="static\html\welcome.html"></div>
 <!-- jQuery 3 -->
 <script src="${ctx.contextPath}/static/jquery/jquery.min.js"></script>
+<script src="${ctx.contextPath}/static/jquery/jquery-migrate-min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="${ctx.contextPath}/static/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="${ctx.contextPath}/static/adminlte/js/adminlte.min.js"></script>
 <!--新增 begin-->
-<script src="${ctx.contextPath}/static/site/js/index.js"></script>
 <script src="${ctx.contextPath}/static/site/js/TabPanel.js"></script>
 <script src="${ctx.contextPath}/static/site/js/TabPanel.extend.js"></script>
 <script src="${ctx.contextPath}/static/site/js/site.js"></script>
+<script src="${ctx.contextPath}/static/site/js/index.js"></script>
 <!--新增 end-->
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
