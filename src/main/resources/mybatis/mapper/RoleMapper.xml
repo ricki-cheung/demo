@@ -7,11 +7,6 @@
    <resultMap type="com.example.demo.model.Role" id="role">
       <result column="role_id" property="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
       <result column="role_name" property="roleName" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      
-      	<!-- 这里把role的id传过去 --><!-- 调用子查询 -->
-  	 <collection column="role_id" property="userList"
-  	 		select="com.example.demo.mapper.UserMapper.getUserListByRoleId" >
-  	 </collection>
   	 
   	 <collection column="role_id" property="authList"
   	 		select="com.example.demo.mapper.AuthMapper.getAuthListByRoleId" >
@@ -20,21 +15,28 @@
 
    <!-- 查询操作 begin -->
    
-   <!-- 根据用户id查询对应角色集合 --><!--调用子查询,查询出角色的id集合，再查询出id对应角色-->
+   <!-- 根据用户id查询对应角色集合 --><!-- userId不会为null，总能查出user -->
    <select id="getRoleListByUserId" parameterType="java.lang.Integer" resultMap="role">
-   		SELECT  *  FROM sys_role s LEFT JOIN sys_user_role u ON s.role_id=u.role_id
+   		SELECT  s.role_id,s.role_name  FROM sys_role s 
+   		LEFT JOIN sys_user_role u ON s.role_id=u.role_id
    		WHERE u.user_id=#{userId,jdbcType=INTEGER}
    </select>
    
    <!-- 根据权限id查询对应角色集合 -->
    <select id="getRoleListByAuthId" parameterType="java.lang.String" resultMap="role">
-   		SELECT  *  FROM sys_role s LEFT JOIN sys_role_auth r ON s.role_id=r.role_id
+   		SELECT s.role_id,s.role_name  FROM sys_role s 
+   		<if test="authId != null">
+   		LEFT JOIN sys_role_auth r ON s.role_id=r.role_id
    		WHERE r.auth_id=#{authId,jdbcType=VARCHAR}
+   		</if>
    </select>
    
    <!-- 根据角色ID查询角色 -->
    <select id="getRoleById" parameterType="java.lang.Integer" resultMap="role">
-   	SELECT * FROM sys_role WHERE role_id=#{roleId,jdbcType=INTEGER}
+   	SELECT role_id,role_name FROM sys_role 
+   	<if test="roleId != null">
+   	WHERE role_id=#{roleId,jdbcType=INTEGER}
+   	</if>
    </select>
    
    <!-- 查询操作 end -->

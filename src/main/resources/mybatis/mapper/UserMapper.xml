@@ -9,7 +9,7 @@
       <result column="user_name" property="userName" javaType="java.lang.String" jdbcType="VARCHAR"/>
       <result column="password" property="passWord" javaType="java.lang.String" jdbcType="VARCHAR"/>
   	
-  	<!-- 这里把user的id传过去 --><!-- 调用子查询 -->
+  	<!-- 这里把user的id传过去 --><!-- 进行子查询 -->
   	 <collection column="user_id" property="roleList"
   	 		select="com.example.demo.mapper.RoleMapper.getRoleListByUserId" >
   	 </collection>
@@ -19,20 +19,20 @@
    <!-- 根据用户id查询用户 -->
    <select id="queryUserById" parameterType="java.lang.Integer" resultMap="user">
       SELECT user_id,user_name,password FROM sys_user 
-       <if test="userId != null">
-        WHERE user_id=#{userId,jdbcType=INTEGER}
-     </if>
+      <if test="userId != null">
+      WHERE user_id=#{userId,jdbcType=INTEGER}
+      </if>
      
    </select>
    <!-- 查询操作 end -->
    
-   <!-- 根据role的id查询对应的用户List -->
+   <!-- 根据role的id查询对应的用户List --><!-- 还没测试 -->
    <select id="getUserListByRoleId" parameterType="java.lang.Integer" resultMap="user">
-   		SELECT s.user_id,s.user_name,s.password FROM sys_user
+   		SELECT s.user_id,s.user_name,s.password FROM sys_user s
    		<if test="roleId != null">
-   		s LEFT JOIN sys_user_role u ON s.user_id=u.user_id
+   		LEFT JOIN sys_user_role u ON s.user_id=u.user_id
    		LEFT JOIN sys_role r ON r.role_id=u.role_id  WHERE r.role_id=#{roleId,jdbcType=INTEGER}
-   		</if> 
+   		</if>
    </select>
    
    
