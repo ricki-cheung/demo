@@ -270,7 +270,7 @@ desired effect
 			        <@menuTree item.children />
 			      </ul>
 			    <#else>
-			        <li><a title="${item.authName}" href="javascript:" data-href="${item.authEntry}" class="addTabPage" > 
+			        <li><a title="${item.authName}" href="javascript:" data-href="/api/${item.authEntry}" class="addTabPage" > 
 			        	<span>${item.authName}</span> 
 			        	</a>
 			        </li>   
@@ -395,7 +395,8 @@ desired effect
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
- <div id="desktopTabPage" class="hide" data-title="说明" data-url="${ctx.contextPath}/static/site/html/welcome.html"></div>
+<div id="modifyPasswordTip" class="hide" data-message=""></div>
+<div id="desktopTabPage" class="hide" data-title="说明" data-url="${ctx.contextPath}/static/site/html/welcome.html"></div>
 <!-- jQuery 3 -->
 <script src="${ctx.contextPath}/static/jquery/jquery.min.js"></script>
 <script src="${ctx.contextPath}/static/jquery/jquery-migrate-min.js"></script>
