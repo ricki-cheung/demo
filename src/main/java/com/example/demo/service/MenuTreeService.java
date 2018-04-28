@@ -126,7 +126,6 @@ public class MenuTreeService {
 				}
 			}
 		}
-		
 		return allJsonArray;
 	}
 	
