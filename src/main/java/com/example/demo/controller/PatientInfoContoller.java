@@ -36,7 +36,7 @@ public class PatientInfoContoller {
 	}*/
 	
 	
-	@RequestMapping("/toPatientList")
+	@RequestMapping("/patientInfo")
 	public ModelAndView list(
 			@RequestParam(defaultValue="1") int pageNo,
 			@RequestParam(defaultValue="20") int pageSize){
@@ -46,8 +46,7 @@ public class PatientInfoContoller {
 		int pageCnt=(totalCnt+pageSize-1)/pageSize;
 	    //计算查询的记录起始位置
 		int offset = (pageNo - 1)*pageSize;
-		
-		
+		System.out.println("22222222222222222222222222");
 		//定义传参数据
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 		paramMap.put("offset", offset);
@@ -55,7 +54,7 @@ public class PatientInfoContoller {
 		
 		//获取分页数据
 		List<PatientInfo> resultList = patientInfoService.queryList(paramMap);
-		ModelAndView modelAndView = new ModelAndView("patientList");    
+		ModelAndView modelAndView = new ModelAndView("patientInfo");    
 		modelAndView.addObject("resultList", resultList);
 		return modelAndView;
 	}

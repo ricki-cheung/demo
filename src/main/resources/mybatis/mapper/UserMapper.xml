@@ -24,7 +24,7 @@
       </if>
      
    </select>
-   <!-- 查询操作 end -->
+  
    
    <!-- 根据role的id查询对应的用户List --><!-- 还没测试 -->
    <select id="getUserListByRoleId" parameterType="java.lang.Integer" resultMap="user">
@@ -39,4 +39,6 @@
    <select id="getUserByUserName" parameterType="java.lang.String" resultMap="user">
    	SELECT user_id,user_name,password FROM sys_user WHERE user_name=#{userName,jdbcType=VARCHAR}
    </select>
+   
+    <!-- 查询操作 end -->
 </mapper>

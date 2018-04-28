@@ -61,4 +61,6 @@ public class ShiroBaseConfiguration {
 		chainDefinition.addPathDefinition("/**", "authc");
         return chainDefinition;
     }
+	
+	
 }
