@@ -129,7 +129,15 @@ public class MenuTreeService {
 		return allJsonArray;
 	}
 	
-	
+	/**
+	 * 根据用户名返回对应的JSON格式的菜单
+	 * @param userName
+	 * @return
+	 */
+	public JSONArray getMenuByUserName(String userName) {
+		User user = userMapper.getUserByUserName(userName);
+		return getMenu(user.getId());
+	}
 	
 	/**
 	 * 生成菜单树
