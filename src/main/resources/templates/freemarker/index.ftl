@@ -395,7 +395,8 @@ desired effect
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
- <div id="desktopTabPage" class="hide" data-title="说明" data-url="${ctx.contextPath}/static/site/html/welcome.html"></div>
+<div id="modifyPasswordTip" class="hide" data-message=""></div>
+<div id="desktopTabPage" class="hide" data-title="说明" data-url="${ctx.contextPath}/static/site/html/welcome.html"></div>
 <!-- jQuery 3 -->
 <script src="${ctx.contextPath}/static/jquery/jquery.min.js"></script>
 <script src="${ctx.contextPath}/static/jquery/jquery-migrate-min.js"></script>
