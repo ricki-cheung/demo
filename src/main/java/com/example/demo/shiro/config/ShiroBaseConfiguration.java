@@ -35,7 +35,7 @@ public class ShiroBaseConfiguration {
 	 * @return
 	 * 如果设置了sessionDAO，相应需要配置cacheManager
 	 */
-	@Bean
+	//@Bean
 	public CacheManager cacheManager() {
 		return new EhCacheManager();
 	}
@@ -44,7 +44,7 @@ public class ShiroBaseConfiguration {
 	 * @return
 	 * 设置sessionDAO,默认是MemorySessionDAO
 	 */
-	@Bean
+	//@Bean
 	public SessionDAO sessionDAO() {
         return new EnterpriseCacheSessionDAO();
     }
