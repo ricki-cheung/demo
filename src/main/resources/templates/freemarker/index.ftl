@@ -270,7 +270,7 @@ desired effect
 			        <@menuTree item.children />
 			      </ul>
 			    <#else>
-			        <li><a title="${item.authName}" href="javascript:" data-href="${item.authEntry}" class="addTabPage" > 
+			        <li><a title="${item.authName}" href="javascript:" data-href="/api/${item.authEntry}" class="addTabPage" > 
 			        	<span>${item.authName}</span> 
 			        	</a>
 			        </li>   
