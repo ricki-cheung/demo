@@ -18,4 +18,5 @@ import com.example.demo.model.User;
 public interface UserMapper {
 	User queryUserById(@Param(value="userId") Integer userId);
 	List<User> getUserListByRoleId(@Param(value="roleId") Integer roleId);
+	User getUserByUserName(@Param(value="userName") String userName);
 }
