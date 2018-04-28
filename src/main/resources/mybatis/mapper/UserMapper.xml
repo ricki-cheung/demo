@@ -35,8 +35,8 @@
    		</if>
    </select>
    
-   <!-- 根据用户名获取用户ID -->
+   <!-- 根据用户名获取用户 -->
    <select id="getUserByUserName" parameterType="java.lang.String" resultMap="user">
-   	SELECT user_id FROM sys_user WHERE user_name=#{userName,jdbcType=VARCHAR}
+   	SELECT user_id,user_name,password FROM sys_user WHERE user_name=#{userName,jdbcType=VARCHAR}
    </select>
 </mapper>
