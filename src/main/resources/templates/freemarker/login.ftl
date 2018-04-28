@@ -19,10 +19,10 @@
                         <form name="loginform" action="" method="POST" accept-charset="UTF-8" role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username or Email" name="username" type="text">
+                                    <input class="form-control" placeholder="Username or Email" name="username" value="root" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="abc123">
                                 </div>
                                 <div class="checkbox">
                                     <label>

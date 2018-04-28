@@ -12,6 +12,10 @@ public class PatientInfo {
 	private Long id;
 	private String name;
 	private String careLevel;
+	private Integer auditState;
+	private Integer beinHospitalTimes;
+	private String inHospitalNo;
+	//private String 
 	
 	public Long getId() {
 		return id;

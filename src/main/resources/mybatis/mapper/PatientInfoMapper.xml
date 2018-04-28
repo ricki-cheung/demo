@@ -35,4 +35,10 @@
    
    
    
+   <!-- 删除操作 begin-->
+   <delete id="deletePatient">
+   		
+   </delete>
+   
+   
 </mapper>
