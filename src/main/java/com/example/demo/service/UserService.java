@@ -38,6 +38,15 @@ public class UserService {
 		return userMapper.getUserListByRoleId(roleId);
 	}
 	
+	/**
+	 * 根据用户名查询用户
+	 * @param userName
+	 * @return
+	 */
+	public User getUserByUserName(String userName) {
+		return userMapper.getUserByUserName(userName);
+	}
+	
 	
 	
 	
