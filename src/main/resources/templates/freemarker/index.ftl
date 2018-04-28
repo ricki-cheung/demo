@@ -404,6 +404,7 @@ desired effect
 <!-- AdminLTE App -->
 <script src="${ctx.contextPath}/static/adminlte/js/adminlte.min.js"></script>
 <!--新增 begin-->
+<script src="${ctx.contextPath}/static/layer/layer.js"></script>
 <script src="${ctx.contextPath}/static/site/js/TabPanel.js"></script>
 <script src="${ctx.contextPath}/static/site/js/TabPanel.extend.js"></script>
 <script src="${ctx.contextPath}/static/site/js/site.js"></script>
