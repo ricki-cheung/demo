@@ -35,16 +35,19 @@ public class ShiroBaseConfiguration {
 	 * @return
 	 * 如果设置了sessionDAO，相应需要配置cacheManager
 	 */
-	//@Bean
+	@Bean
 	public CacheManager cacheManager() {
-		return new EhCacheManager();
+		EhCacheManager cacheManager = new EhCacheManager();
+		//TODO 只是把classpath:org/apache/shiro/cache/ehcache/ehcache.xml默认的diskPersistent改为false
+		cacheManager.setCacheManagerConfigFile("classpath:ehcache.xml");
+		return cacheManager;
 	}
 	
 	/**
 	 * @return
 	 * 设置sessionDAO,默认是MemorySessionDAO
 	 */
-	//@Bean
+	@Bean
 	public SessionDAO sessionDAO() {
         return new EnterpriseCacheSessionDAO();
     }

@@ -22,7 +22,7 @@ public class MyAuthenticationFilter extends FormAuthenticationFilter{
 		if(request instanceof ShiroHttpServletRequest) {
 			HttpSession httpSession = ((ShiroHttpServletRequest)request).getSession();
 			//TODO 把菜单添加到httpSession中
-			httpSession.setAttribute("treeMenu", null);
+			httpSession.setAttribute("treeMenu", "alensic");
 		}
 		
 		return super.onLoginSuccess(token, subject, request, response);
