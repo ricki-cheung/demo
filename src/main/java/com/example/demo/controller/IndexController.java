@@ -1,14 +1,12 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.example.demo.service.MenuTreeService;
-
-import net.sf.json.JSONArray;
 
 /**
  * @author Ricki
@@ -17,8 +15,8 @@ import net.sf.json.JSONArray;
 @Controller
 public class IndexController {
 	
-	@Autowired
-	private MenuTreeService menuTreeService;
+	/*@Autowired
+	private MenuTreeService menuTreeService;*/
 
 	/**
 	 * @return
@@ -26,8 +24,10 @@ public class IndexController {
 	 */
 	@RequestMapping("/index")
 	public String indexPage(Model model,@RequestParam(defaultValue="1") Integer id) {
-		JSONArray allJsonArray = menuTreeService.getMenu(id);
-		model.addAttribute("treeMenu", allJsonArray);
+		//JSONArray allJsonArray = menuTreeService.getMenu(id);
+		Subject subject = SecurityUtils.getSubject();
+		Session session = subject.getSession();
+		model.addAttribute("treeMenu", session.getAttribute("treeMenu"));
 		return "index";
 	}
 	
