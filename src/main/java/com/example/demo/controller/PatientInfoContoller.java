@@ -46,7 +46,7 @@ public class PatientInfoContoller {
 		int pageCnt=(totalCnt+pageSize-1)/pageSize;
 	    //计算查询的记录起始位置
 		int offset = (pageNo - 1)*pageSize;
-		System.out.println("22222222222222222222222222");
+	
 		//定义传参数据
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 		paramMap.put("offset", offset);
