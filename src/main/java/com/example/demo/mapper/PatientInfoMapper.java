@@ -18,4 +18,7 @@ import com.example.demo.model.PatientInfo;
 public interface PatientInfoMapper {
 	List<PatientInfo> queryList(Map<String,Object> paramMap);
 	int getTotalCount(Map<String,Object> paramMap);
+	List<PatientInfo>  queryPatientListByCondition(Map<String, Object> paramMap);
+	void deletePatientById(Integer id);
+	void addPitent(PatientInfo patientInfo);
 }
