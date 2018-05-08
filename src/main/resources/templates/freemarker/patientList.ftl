@@ -145,6 +145,7 @@
 							   <div class="form-group row ">
 								 <div class="col-md-6 mydiv">
 								    <label for="exampleInputName2">名字：</label>
+								    <input type="hidden" value="${PatientInfo.id}" name="id">
 								    <input type="text" class="form-control" id="name" name="name" value="${PatientInfo.name!''}">
 						  		</div>
 								<div class="col-md-6 mydiv">
