@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.PersonMapper;
-import com.example.demo.model.Person;
 
 @Service
 public class PersonService {
@@ -15,15 +14,23 @@ public class PersonService {
 	 * @param name
 	 * @return
 	 */
-	public Person queryPersonforName(String name) {
+	/*public Person queryPersonforName(String name) {
 		return personMapper.queryPersonforName(name);
-	}
+	}*/
 	
 	/**
 	 * 新增person
 	 * @param name
 	 */
-	public void addPatient(String name) {
+	/*public void addPatient(String name) {
 		personMapper.addPatient(name);
-	}
+	}*/
+	
+	/**
+	 * 修改person名字
+	 * @param paramMap
+	 */
+	/*public void updatePerson(Map<String, Object> paramMap) {
+		personMapper.updatePerson(paramMap);
+	}*/
 }
