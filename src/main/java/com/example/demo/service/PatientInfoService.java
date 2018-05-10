@@ -9,10 +9,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.mapper.PatientInfoMapper;
 import com.example.demo.model.PatientInfo;
 import com.example.demo.model.PatientQuery;
+import com.example.demo.model.Person;
 
 /**
  * @author Ricki
@@ -85,9 +87,71 @@ public class PatientInfoService {
 	 * 
 	 * @param paramMap
 	 */
-	public void addPitent(PatientInfo patientInfo) {
-		patientInfoMapper.addPitent(patientInfo);
+	public void addPatient(PatientInfo patientInfo) {
+		patientInfoMapper.addPatient(patientInfo);
+	}
+	
+	/**
+	 * 修改病人信息
+	 * @param patientInfo
+	 */
+	public void updatePatientInfo(PatientInfo patientInfo) {
+		patientInfoMapper.updatePatientInfo(patientInfo);
+	}
+	
+	/**
+	 * 根据名字查询病人流水号
+	 * @param name
+	 * @return
+	 */
+	public Person queryPersonforName(String name) {
+		return patientInfoMapper.queryPersonforName(name);
+	}
+	
+	/**
+	 * 新增person
+	 * @param name
+	 */
+	public void addPerson(String name) {
+		patientInfoMapper.addPerson(name);
+	}
+	
+	/**
+	 * 修改person名字
+	 * @param paramMap
+	 */
+	public void updatePerson(Map<String, Object> paramMap) {
+		patientInfoMapper.updatePerson(paramMap);
+	}
+	
+	/**
+	 * 新增patientInfo
+	 * @param patientInfo
+	 * @param person
+	 * @param personService
+	 * 
+	 */
+	//@Transactional
+	public void addPaitentInfo(PatientInfo patientInfo,Person person) {
+		if(person != null) {
+			patientInfo.setId(person.getPersonSn());
+		}else {
+			addPerson(patientInfo.getName());//新增person
+			person = queryPersonforName(patientInfo.getName());
+			patientInfo.setId(person.getPersonSn());	
+		}
+		addPatient(patientInfo);//新增patient
 	}
 	
 
+	/**
+	 * 修改病人信息
+	 * @param patientInfo
+	 * @return
+	 */
+	//@Transactional
+	public void updatePaitentInfo(PatientInfo patientInfo,Map<String,Object> paramMap) {
+		updatePerson(paramMap);//修改name
+		updatePatientInfo(patientInfo);//修改其他
+	}
 }
