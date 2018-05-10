@@ -20,6 +20,15 @@
       <result column="out_hospital_flag" property="outHospitalFlag" javaType="java.lang.Integer" jdbcType="VARCHAR"/>
    </resultMap>
 
+
+
+	
+   <resultMap type="com.example.demo.model.Person" id="person">
+      <result column="person_sn" property="personSn" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+      <result column="p_name" property="pName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+   </resultMap>
+   
+   
    <!-- 查询操作 begin -->
    
    <!-- 用于查询所有列 -->
@@ -82,10 +91,32 @@
    
    
    <!-- 新增病人记录 -->
-   <insert id="addPitent" parameterType="com.example.demo.model.PatientInfo">
+   <insert id="addPatient" parameterType="com.example.demo.model.PatientInfo">
    		INSERT INTO t_patient_info (patient_sn,person_sn,care_level,audit_state,bein_hospital_times,in_hospital_no,patient_type,patient_doctor,
    		hospitalization_days,diagnose_doctor,out_hospital_flag) VALUES(#{id},#{id},#{careLevel},#{auditState},#{beinHospitalTimes},
    		#{inHospitalNo},#{patientType},#{patientDoctor},#{hospitalizationDays},#{diagnoseDoctor},#{outHospitalFlag})
    </insert>
    
+   <!-- 修改病人信息 -->
+   <update id="updatePatientInfo" parameterType="com.example.demo.model.PatientInfo">
+   		UPDATE t_patient_info SET care_level=#{careLevel},audit_state=#{auditState},bein_hospital_times=#{beinHospitalTimes},
+   		in_hospital_no=#{inHospitalNo},patient_type=#{patientType},patient_doctor=#{patientDoctor},hospitalization_days=#{hospitalizationDays},
+   		diagnose_doctor=#{diagnoseDoctor},out_hospital_flag=#{outHospitalFlag} WHERE patient_sn=#{id}
+   </update>
+   
+   
+    <insert id="addPerson" parameterType="java.lang.String">
+   		INSERT INTO t_person_info (p_name) VALUES(#{name,jdbcType=VARCHAR})
+   </insert>
+   
+   
+   <!-- 根据patient_sn修改p_name -->
+   <update id="updatePerson" parameterType="java.util.Map">
+   		UPDATE t_person_info SET p_name=#{name} WHERE person_sn=#{id}
+   </update>
+   
+   <!-- 根据查找ID -->
+   <select id="queryPersonforName" parameterType="java.lang.String" resultMap="person">
+   	SELECT person_sn,p_name FROM t_person_info WHERE p_name =#{name,jdbcType=VARCHAR}
+   </select>
 </mapper>
