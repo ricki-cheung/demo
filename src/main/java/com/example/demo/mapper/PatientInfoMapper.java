@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.model.PatientInfo;
+import com.example.demo.model.Person;
 
 /**
  * @author Ricki
@@ -20,5 +21,10 @@ public interface PatientInfoMapper {
 	int getTotalCount(Map<String,Object> paramMap);
 	List<PatientInfo>  queryPatientListByCondition(Map<String, Object> paramMap);
 	void deletePatientById(Integer id);
-	void addPitent(PatientInfo patientInfo);
+	void addPatient(PatientInfo patientInfo);
+	void updatePatientInfo(PatientInfo patientInfo);
+	
+	void addPerson(String name);
+	void updatePerson(Map<String, Object> paramMap);
+	Person queryPersonforName(String name);
 }
