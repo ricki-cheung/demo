@@ -4,18 +4,23 @@
 <mapper namespace="com.example.demo.mapper.PersonMapper">
    
    <!-- 简单信息映射关系 -->
-   <resultMap type="com.example.demo.model.Person" id="person">
+   <!-- <resultMap type="com.example.demo.model.Person" id="person">
       <result column="person_sn" property="personSn" javaType="java.lang.Integer" jdbcType="INTEGER"/>
       <result column="p_name" property="pName" javaType="java.lang.String" jdbcType="VARCHAR"/>
-   </resultMap>
+   </resultMap> -->
 
    <!-- 根据查找ID -->
-   <select id="queryPersonforName" parameterType="java.lang.String" resultMap="person">
+  <!--  <select id="queryPersonforName" parameterType="java.lang.String" resultMap="person">
    	SELECT person_sn,p_name FROM t_person_info WHERE p_name =#{name,jdbcType=VARCHAR}
-   </select>
+   </select> -->
    
-   <insert id="addPatient" parameterType="java.lang.String">
+  <!--  <insert id="addPerson" parameterType="java.lang.String">
    		INSERT INTO t_person_info (p_name) VALUES(#{name,jdbcType=VARCHAR})
-   </insert>
+   </insert> -->
    
+   
+   <!-- 根据patient_sn修改p_name -->
+  <!--  <update id="updatePerson" parameterType="java.util.Map">
+   		UPDATE t_person_info SET p_name=#{name} WHERE person_sn=#{id}
+   </update> -->
 </mapper>
