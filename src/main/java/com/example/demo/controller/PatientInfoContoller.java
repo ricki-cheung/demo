@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.mapper.PersonMapper;
 import com.example.demo.model.PatientInfo;
 import com.example.demo.model.PatientQuery;
 import com.example.demo.model.Person;
 import com.example.demo.service.PatientInfoService;
-import com.example.demo.service.PersonService;
 
 /**
  * @author Ricki
@@ -31,8 +29,6 @@ public class PatientInfoContoller {
 	
 	@Autowired
 	PatientInfoService patientInfoService;
-	@Autowired
-	PersonService personService;
 	
 	@RequestMapping("/patientInfo")
 	public ModelAndView list(
@@ -105,18 +101,45 @@ public class PatientInfoContoller {
 		return "/addoredit/patientAddOrEdit";
 	}
 	
+	/**
+	 * 新增病人信息
+	 * @param patientInfo
+	 * @return
+	 */
 	@RequestMapping("/addPaitentInfo")
 	public String addPaitentInfo(PatientInfo patientInfo) {
-		Person person = personService.queryPersonforName(patientInfo.getName());
-		if(person != null) {
+		Person person = patientInfoService.queryPersonforName(patientInfo.getName());
+		patientInfoService.addPaitentInfo(patientInfo, person);
+		/*if(person != null) {
 			patientInfo.setId(person.getPersonSn());
 		}else {
-			personService.addPatient(patientInfo.getName());
-			person = personService.queryPersonforName(patientInfo.getName());
-			patientInfo.setId(person.getPersonSn());
+			patientInfoService.addPatient(patientInfo.getName());//新增person
+			person = patientInfoService.queryPersonforName(patientInfo.getName());
+			patientInfo.setId(person.getPersonSn());	
 		}
-		patientInfoService.addPitent(patientInfo);
+		patientInfoService.addPatient(patientInfo);//新增patient
+*/		return "redirect:/patientInfo";
+	}
+	
+	/**
+	 * 修改病人信息
+	 * @param patientInfo
+	 * @return
+	 */
+	@RequestMapping("/updatePaitentInfo")
+	public String updatePaitentInfo(PatientInfo patientInfo) {
+		Integer id = patientInfo.getId();
+		String name = patientInfo.getName();
+		Map<String,Object> paramMap = new HashMap<String,Object>();
+		paramMap.put("name", name);
+		paramMap.put("id", id);
+		/*
+		patientInfoService.updatePerson(paramMap);//修改name
+		patientInfoService.updatePatientInfo(patientInfo);//修改其他*/
+		
+		patientInfoService.updatePaitentInfo(patientInfo, paramMap);
 		return "redirect:/patientInfo";
+		
 	}
 	
 }
