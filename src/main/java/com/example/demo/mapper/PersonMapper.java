@@ -3,13 +3,7 @@
  */
 package com.example.demo.mapper;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Mapper;
-
-import com.example.demo.model.PatientInfo;
-import com.example.demo.model.Person;
 
 /**
  * @author yanzhiying
@@ -17,6 +11,7 @@ import com.example.demo.model.Person;
  */
 @Mapper
 public interface PersonMapper {
-	Person queryPersonforName(String name);
-	void addPatient(String name);
+	/*Person queryPersonforName(String name);
+	void addPerson(String name);
+	void updatePerson(Map<String, Object> paramMap);*/
 }
