@@ -113,7 +113,7 @@ public class PatientInfoContoller {
 		/*if(person != null) {
 			patientInfo.setId(person.getPersonSn());
 		}else {
-			patientInfoService.addPatient(patientInfo.getName());//新增person
+			patientInfoService.addPerson(patientInfo.getName());//新增person
 			person = patientInfoService.queryPersonforName(patientInfo.getName());
 			patientInfo.setId(person.getPersonSn());	
 		}
