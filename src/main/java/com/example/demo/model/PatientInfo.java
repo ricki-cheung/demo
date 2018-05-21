@@ -9,7 +9,7 @@ package com.example.demo.model;
  */
 public class PatientInfo {
 
-	private Long id;
+	private Integer id;
 	private String name;
 	private String careLevel;
 	private Integer auditState;
@@ -23,10 +23,10 @@ public class PatientInfo {
 	private String diagnoseDoctor;
 	private Integer outHospitalFlag;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -101,6 +101,14 @@ public class PatientInfo {
 	}
 	public void setOutHospitalFlag(Integer outHospitalFlag) {
 		this.outHospitalFlag = outHospitalFlag;
+	}
+	@Override
+	public String toString() {
+		return "PatientInfo [id=" + id + ", name=" + name + ", careLevel=" + careLevel + ", auditState=" + auditState
+				+ ", beinHospitalTimes=" + beinHospitalTimes + ", inHospitalNo=" + inHospitalNo + ", outPatientNo="
+				+ outPatientNo + ", patientType=" + patientType + ", patientDoctor=" + patientDoctor + ", primaryNurse="
+				+ primaryNurse + ", hospitalizationDays=" + hospitalizationDays + ", diagnoseDoctor=" + diagnoseDoctor
+				+ ", outHospitalFlag=" + outHospitalFlag + "]";
 	}
 	
 	
