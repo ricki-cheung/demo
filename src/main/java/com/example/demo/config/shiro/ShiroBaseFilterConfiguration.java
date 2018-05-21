@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.demo.shiro.config;
+package com.example.demo.config.shiro;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.demo.shiro.filter.MyAuthenticationFilter;
+import com.example.demo.filter.MyAuthenticationFilter;
 
 /**
  * @author Ricki

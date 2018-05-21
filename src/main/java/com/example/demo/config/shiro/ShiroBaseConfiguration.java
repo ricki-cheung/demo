@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.demo.shiro.config;
+package com.example.demo.config.shiro;
 
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
@@ -13,7 +13,7 @@ import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.demo.shiro.realm.HelixRealm;
+import com.example.demo.realm.HelixRealm;
 
 /**
  * @author Ricki

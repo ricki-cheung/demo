@@ -88,6 +88,16 @@
            timeToIdleSeconds="0"
            diskPersistent="false"
            diskExpiryThreadIntervalSeconds="600"/>
+           
+    <!-- 配置手机端用户登录后token的缓存 -->       
+    <cache name="user-token"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           timeToLiveSeconds="604800"
+           timeToIdleSeconds="0"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="600"/>
 
     <cache name="org.apache.shiro.realm.text.PropertiesRealm-0-accounts"
            maxElementsInMemory="1000"

@@ -6,7 +6,6 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Ricki
@@ -23,7 +22,7 @@ public class IndexController {
 	 * 登录成功后的首页页面
 	 */
 	@RequestMapping("/index")
-	public String indexPage(Model model,@RequestParam(defaultValue="1") Integer id) {
+	public String indexPage(Model model) {//,@RequestParam(defaultValue="1") Integer id
 		//JSONArray allJsonArray = menuTreeService.getMenu(id);
 		Subject subject = SecurityUtils.getSubject();
 		Session session = subject.getSession();

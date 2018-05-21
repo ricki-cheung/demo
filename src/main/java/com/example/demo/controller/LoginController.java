@@ -7,7 +7,6 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author Ricki
@@ -20,7 +19,7 @@ public class LoginController {
 	 * @return
 	 * 登录页面
 	 */
-	@RequestMapping(path="/login",method=RequestMethod.GET)
+	@RequestMapping(path="/login")
 	public String login() {
 		Subject userSubject = SecurityUtils.getSubject();
 		if(userSubject.isAuthenticated()) {
