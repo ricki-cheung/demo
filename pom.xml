@@ -100,8 +100,21 @@
 		</dependency>
 		<!-- 缓存 end -->
 		
-		<!-- 第三方工具  end -->
+		<!-- 移动开发 begin -->
+		<dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-mobile</artifactId>
+           <version>1.5.12.RELEASE</version>
+        </dependency>
+		<!-- 移动开发  end-->
 		
+		<!-- 第三方工具  end -->
+		<!-- <dependency>
+           <groupId>eu.bitwalker</groupId>
+           <artifactId>UserAgentUtils</artifactId>
+           <version>1.21</version>
+        </dependency> 
+        <dependency>-->
 		<!-- 第三方工具  end -->
 		
 		<!-- 菜单导航JSON包 -->
@@ -118,16 +131,7 @@
             <version>1.8.3</version>
         </dependency>
 
-		<dependency>
-	      <groupId>org.springframework.security</groupId>
-	      <artifactId>spring-security-web</artifactId>
-	      <version>5.0.6.RELEASE</version><!--$NO-MVN-MAN-VER$-->
-        </dependency>
-        <dependency>
-	     <groupId>org.springframework.security</groupId>
-	     <artifactId>spring-security-config</artifactId>
-	     <version>5.0.6.RELEASE</version><!--$NO-MVN-MAN-VER$-->
-       </dependency>
+		
 
 	</dependencies>
 
